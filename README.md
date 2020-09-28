@@ -4,7 +4,7 @@ To get the backend running:
 - Once pgAdmin is opened, create a database named CoinDB
 - Once the database is created, go to Schemas > public > Tables
 - Create a table named users
-- Create 5 columns: id, username, email, createdAt, updatedAt
+- In that table, create 5 columns: id, username, email, createdAt, updatedAt
   - id will be the primary key. It is data type integer
   - username, email, createdAt, updatedAt will be "character varying" data types
 
