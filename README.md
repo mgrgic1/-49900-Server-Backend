@@ -2,7 +2,8 @@ To get the backend running:
 
 - Install PostgreSQL on your computer and create a password for the database.
 - Once pgAdmin is opened, create a database named CoinDB
-- Once the database is created, go to Schemas > public > Tables > users
+- Once the database is created, go to Schemas > public > Tables
+- Create a table named users
 - Create 5 columns: id, username, email, createdAt, updatedAt
   - id will be the primary key. It is data type integer
   - username, email, createdAt, updatedAt will be "character varying" data types
