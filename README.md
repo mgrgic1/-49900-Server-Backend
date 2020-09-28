@@ -11,5 +11,5 @@ To get the backend running:
 - Install required dependencies
 - Once the database is set up and dependencies are installed, create a file named ".env" (without quotes) in the main repo folder. Edit the file and type in LOCAL_DATABASE_PASSWORD='yourpasswordhere', replacing 'yourpasswordhere' with the password you used when setting up PostgreSQL
 
-- Type "npm run dev" into your command/terminal. 
+- Everything should be set up. Type "npm run dev" into your command/terminal. 
 - Open a browser and type in "localhost:5000" in the URL. The connection has been established and everything is running fine if you see an "ok" message.
