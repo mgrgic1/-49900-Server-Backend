@@ -12,8 +12,13 @@ db.authenticate()
 .then(() => console.log('Database connected!'))
 .catch(err => console.log('Error: ' + err))
 
-
 const app = express();
+
+//body parser
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+
+
 
 //user routes
 app.use('/users', require('./routes/userRoutes'));

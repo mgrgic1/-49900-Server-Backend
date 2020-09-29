@@ -4,29 +4,25 @@ const router = express.Router();
 const db = require('../config/database');
 const Users = require('../models/Users');
 
-//getting user info
+//GET user info
 router.get('/', (req,res,next) => {
     Users.findAll()
     .then(usersRes => res.send(usersRes))
     .catch(next)
 })
 
+//POST user info to database
+router.post('/add', (req,res) => {
+    let { username, email } = req.body;
 
-router.post("/add", async(req, res, next) => {
-    const {username, email } = req.body;
+    //insert into table
+    Users.create({
+        username,email
+    })
+    .then(users = res.redirect('/users'))
+    .catch(err => console.log(err));
+})
 
-    const userObj = {
-        username: username,
-        email: email,
-    };
-    try {
-        //create a new user
-        const newUser = await Users.create(userObj);
-        res.status(201).send(newUser);
-    } catch (err) {
-        next(err)
-    }
-});
 
 
 
