@@ -1,4 +1,4 @@
-To get the backend running:
+# Installation:
 
 - Install PostgreSQL on your computer and create a password for the database.
 - If npm isn't installed on your computer, download it here https://www.npmjs.com/get-npm. This will help you with npm commands
@@ -14,3 +14,9 @@ To get the backend running:
 
 - Everything should be set up. Type "npm run dev" into your command/terminal. 
 - Open a browser and type in "localhost:5000" in the URL. The connection has been established and everything is running fine if you see an "ok" message.
+
+
+# Usage/Commands:
+`localhost:5000/users` - GET request to view all users in database
+
+`localhost:5000/users/add` - POST request to add users to database
