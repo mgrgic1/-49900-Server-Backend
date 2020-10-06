@@ -20,3 +20,7 @@
 `localhost:5000/users` - GET request to view all users in database
 
 `localhost:5000/users/add` - POST request to add users to database
+
+`localhost:5000/users/edit/id` - PUT request to edit a user by their ID
+
+`localhost:5000/users/remove/id` - DELETE request to remove a user by their ID
