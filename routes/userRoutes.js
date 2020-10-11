@@ -3,20 +3,29 @@ const router = express.Router();
 const db = require('../config/database');
 const Users = require('../models/Users');
 
-//GET user info
-router.get('/', (req,res,next) => {
-    Users.findAll()
-    .then(usersRes => res.send(usersRes))
-    .catch(next)
+//GET a single user's info (by their ID)
+router.get('/:id', async (req,res,next) => {
+    const {id} = req.params;
+    try {
+        //if user exists
+        const user = await Users.findByPk(id);
+
+        //send back the user as a response
+        res.status(200).json(user);
+    }
+    catch(err) {
+        next(err);
+    }
 })
 
 //POST user info to database
 router.post('/add', (req,res) => {
-    let { username, email } = req.body;
+    let { username, email, totalBalance} = req.body;
+    console.log("body = " + req.body);
 
     //insert into table
     Users.create({
-        username,email
+        username,email, totalBalance
     })
     .then(users = res.redirect('/users'))
     .catch(err => console.log(err));
@@ -26,11 +35,12 @@ router.post('/add', (req,res) => {
 router.put("/edit/:id",async(req,res,next) => {
     const {id} = req.params;
 
-    let {username, email} = req.body;
+    let {username, email,totalBalance} = req.body;
 
     const updatedObj = {
         username: username,
-        email: email
+        email: email,
+        totalBalance: totalBalance
     };
 
     try 

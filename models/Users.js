@@ -22,6 +22,12 @@ const Users = db.define('users',{
         type: Sequelize.STRING,
         allowNull: false,
         allowEmpty: false,
+    },
+
+    totalBalance: {
+        type: Sequelize.DOUBLE,
+        allowNull: false,
+        allowEmpty: false
     }
 }, 
 //since sequelize adds an S to the end of the table name, freezeTableName takes the name of the table literally
