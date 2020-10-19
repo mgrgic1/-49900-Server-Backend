@@ -2,7 +2,7 @@
 
 - Install PostgreSQL on your computer and create a password for the database.
 - If npm isn't installed on your computer, download it here https://www.npmjs.com/get-npm. This will help you with npm commands
-- Once pgAdmin is opened, create a database named "coinDB" (without quotes, case sensitive)
+- Once pgAdmin is opened, create a database named "CoinDB" (without quotes, case sensitive)
 - Once the database is created, go to Schemas > public > Tables
 - Create a table named users
 - In that table, create 5 columns: id, username, email, createdAt, updatedAt
