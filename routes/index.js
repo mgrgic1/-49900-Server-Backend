@@ -3,8 +3,12 @@ var router = express.Router();
 
 // Subrouters;
 const userRouter = require("./userRoutes");
+const userGoalsRouter = require("./userGoalsRoutes");
 
 router.use("/users", userRouter);
+router.use("/userGoals",userGoalsRouter);
+
+
 
 // Error handling middleware;
 // Might need to modify later
