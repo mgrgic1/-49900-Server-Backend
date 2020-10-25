@@ -28,8 +28,10 @@
 # User Goals Commands:
 `localhost:5000/userGoals/id` - GET request to view all goals for a specific USER ID. The `id` specified must be the user's id.
 
+`localhost:5000/userGoals/goal/goalId` - GET request to view a specific goal. The `goalId` specified must be the goal's id
+
 `localhost:5000/userGoals/addGoal` - POST request to add a goal to the database for a specific user.
 
-`localhost:5000/userGoals/edit/goalId` - PUT request to edit a user's goal. Must specify a GOAL ID, not a user id. 
+`localhost:5000/userGoals/edit/goalId` - PUT request to edit a user's goal. The `goalId` specified must be the goal's id
 
 `localhost:5000/userGoals/remove/goalId` - DELETE request to remove a user's goal. Must specify a GOAL ID, not a user id.
