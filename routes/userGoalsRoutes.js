@@ -13,7 +13,7 @@ router.get('/:userId', async (req,res,next) => {
             user_id: [userId]
         },
         order: [
-            ['priority','ASC'],
+            ['priority','ASC']
         ]
     })
     .then(
