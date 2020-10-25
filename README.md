@@ -16,7 +16,7 @@
 - Open a browser and type in "localhost:5000" in the URL. The connection has been established and everything is running fine if you see an "ok" message.
 
 
-# Usage/Commands:
+# Users Commands:
 `localhost:5000/users` - GET request to view all users in database
 
 `localhost:5000/users/add` - POST request to add users to database
@@ -24,3 +24,12 @@
 `localhost:5000/users/edit/id` - PUT request to edit a user by their ID
 
 `localhost:5000/users/remove/id` - DELETE request to remove a user by their ID
+
+# User Goals Commands:
+`localhost:5000/userGoals/id` - GET request to view all goals for a specific USER ID. The `id` specified must be the user's id.
+
+`localhost:5000/userGoals/addGoal` - POST request to add a goal to the database for a specific user.
+
+`localhost:5000/userGoals/edit/goalId` - PUT request to edit a user's goal. Must specify a GOAL ID, not a user id. 
+
+`localhost:5000/userGoals/remove/goalId` - DELETE request to remove a user's goal. Must specify a GOAL ID, not a user id.
