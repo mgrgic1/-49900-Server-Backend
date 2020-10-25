@@ -13,13 +13,29 @@ router.get('/:userId', async (req,res,next) => {
             user_id: [userId]
         },
         order: [
-            ['priority','ASC']
+            ['priority','ASC'],
         ]
     })
     .then(
         goalRes => res.send(goalRes)
     )
     .catch(next)  
+})
+
+//GET a specific goal (based on GOAL ID)
+router.get('/goal/:goalId', async (req,res,next) => {
+    const {goalId} = req.params;
+
+    try {
+        //if user exists
+        const userGoal = await UserGoals.findByPk(goalId);
+
+        //send back the user as a response
+        res.status(200).json(userGoal);
+    }
+    catch(err) {
+        next(err);
+    }
 })
 
 //POST to create a new user goal (based on USER_ID)
