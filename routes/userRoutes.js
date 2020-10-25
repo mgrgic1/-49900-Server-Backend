@@ -21,8 +21,7 @@ router.get('/:id', async (req,res,next) => {
 //POST user info to database
 router.post('/add', (req,res) => {
     let { username, email, totalBalance} = req.body;
-    console.log("body = " + req.body);
-
+    
     //insert into table
     Users.create({
         username,email, totalBalance
