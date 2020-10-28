@@ -24,7 +24,7 @@ To use:
 
 - Right click on CoinDB (the main database) and click restore
 
-- At the bottom right of the window, choose the format as "sql". Then click the three dots next to Filename. 
+- At the bottom right of the popup window, choose the format as "sql". Then click the three dots next to Filename. Another popup window will come up
 
 - Navigate to wherever you have the dump.sql file stored. When you find it, click on it and press "Select" on the bottom right corner.
 
