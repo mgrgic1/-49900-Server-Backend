@@ -54,7 +54,7 @@ router.put("/edit/:id",async(req,res,next) => {
         await user.set(updatedObj);
 
         //save the new user object to the db
-        //database would return a new student object
+        //database would return a new user object
         const updatedUser = await user.save();
         console.log(updatedUser);
         res.status(201).send(updatedUser);

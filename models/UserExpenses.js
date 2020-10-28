@@ -1,11 +1,11 @@
-//Model for user goals
+//Model for user expenses
 
 const Sequelize = require('sequelize');
 const db = require('../config/database');
 
 
-const UserGoals = db.define('user_goals',{
-    goal_id: {
+const UserExpenses = db.define('user_expenses',{
+    expense_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
@@ -17,7 +17,7 @@ const UserGoals = db.define('user_goals',{
         allowNull: false,
     },
 
-    amount_needed: {
+    expense_monthly: {
         type: Sequelize.DOUBLE,
         allowNull: false,
         allowEmpty: false,
@@ -25,30 +25,23 @@ const UserGoals = db.define('user_goals',{
 
     description: {
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: false,
         allowEmpty: true,
     },
-    
-    reach_by_date: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        allowEmpty: false,
-    },
 
-    progress: {
+    real_amount: {
         type: Sequelize.DOUBLE,
         allowNull: false,
         allowEmpty: false,
     },
-    
-    priority: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
+
+    real_frequency: {
+        type: Sequelize.STRING,
+        allowNull: false,
         allowEmpty: false,
     }
-
 }, 
 //since sequelize adds an S to the end of the table name, freezeTableName takes the name of the table literally
 {freezeTableName: true})
 
-module.exports = UserGoals;
+module.exports = UserExpenses;
