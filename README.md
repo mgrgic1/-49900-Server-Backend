@@ -37,7 +37,7 @@
 `localhost:5000/userGoals/remove/goalId` - DELETE request to remove a user's goal. Must specify a GOAL ID, not a user id.
 
 # User Expenses Commands:
-`localhost:5000/userExpenses/expenseById/expenseId` - GET request to view a specific user expense. Must specify an expenseId (not the user's id)
+`localhost:5000/userExpenses/expenseById/expenseId` - GET request to view a specific user expense. Must specify the expenseId (not the user's id)
 
 `localhost:5000/userExpenses/userId` - GET request to view ALL expenses for a particular user. Must specify the user's id
 
