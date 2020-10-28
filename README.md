@@ -15,6 +15,24 @@
 - Everything should be set up. Type "npm run dev" into your command/terminal. 
 - Open a browser and type in "localhost:5000" in the URL. The connection has been established and everything is running fine if you see an "ok" message.
 
+# SQL Dump:
+
+The "dump.sql" file takes the entire CoinDB that I have (tables, columns, etc) and copies it to your pgAdmin so that you have it as well.
+To use:
+
+- Delete all tables in your CoinDB on pgAdmin. Go to CoinDB > Schemas > Tables > Right click on each one and delete them (trust me)
+
+- Right click on CoinDB (the main database) and click restore
+
+- At the bottom right of the window, choose the format as "sql". Then click the three dots next to Filename. 
+
+- Navigate to wherever you have the dump.sql file stored. When you find it, click on it and press "Select" on the bottom right corner.
+
+- Once the window closes, press "Restore" on the bottom right corner.
+
+- After a couple of seconds, it should give you a success prompt. Refresh the entire page
+
+- If you go to CoinDB > Schemas > Tables, you'll see all the required tables and columns are there
 
 # Users Commands:
 `localhost:5000/users` - GET request to view all users in database
