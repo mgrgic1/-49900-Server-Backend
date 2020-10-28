@@ -28,10 +28,21 @@
 # User Goals Commands:
 `localhost:5000/userGoals/id` - GET request to view all goals for a specific USER ID. The `id` specified must be the user's id.
 
-`localhost:5000/userGoals/goal/goalId` - GET request to view a specific goal. The `goalId` specified must be the goal's id
+`localhost:5000/userGoals/goalById/goalId` - GET request to view a specific goal. The `goalId` specified must be the goal's id
 
-`localhost:5000/userGoals/addGoal` - POST request to add a goal to the database for a specific user.
+`localhost:5000/userGoals/add` - POST request to add a goal to the database for a specific user.
 
 `localhost:5000/userGoals/edit/goalId` - PUT request to edit a user's goal. The `goalId` specified must be the goal's id
 
 `localhost:5000/userGoals/remove/goalId` - DELETE request to remove a user's goal. Must specify a GOAL ID, not a user id.
+
+# User Expenses Commands:
+`localhost:5000/userExpenses/expenseById/expenseId` - GET request to view a specific user expense. Must specify an expenseId (not the user's id)
+
+`localhost:5000/userExpenses/userId` - GET request to view ALL expenses for a particular user. Must specify the user's id
+
+`localhost:5000/userExpenses/add` - POST request to add a new expense to the database for a specific user
+
+`localhost:5000/userExpenses/edit/expenseId` - PUT request to edit a specific expense. Must specify the expense id
+
+`localhost:5000/userExpenses/remove/expenseId` - DELETE request to remove a specific expense. Must specify the expense id
