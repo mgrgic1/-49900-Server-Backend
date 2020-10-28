@@ -23,14 +23,14 @@ router.get('/:userId', async (req,res,next) => {
 })
 
 //GET a specific goal (based on GOAL ID)
-router.get('/goal/:goalId', async (req,res,next) => {
+router.get('/goalById/:goalId', async (req,res,next) => {
     const {goalId} = req.params;
 
     try {
-        //if user exists
+        //if user goal exists
         const userGoal = await UserGoals.findByPk(goalId);
 
-        //send back the user as a response
+        //send back the user goal as a response
         res.status(200).json(userGoal);
     }
     catch(err) {
@@ -39,7 +39,7 @@ router.get('/goal/:goalId', async (req,res,next) => {
 })
 
 //POST to create a new user goal (based on USER_ID)
-router.post('/addGoal', (req,res) => {
+router.post('/add', (req,res) => {
 
     let {user_id, amount_needed, description, reach_by_date, progress, priority} = req.body;
 
@@ -71,14 +71,13 @@ router.put("/edit/:goalId",async(req,res,next) => {
         //finds a user goal with matching ((GOAL ID)) from the database
         const userGoal = await UserGoals.findByPk(goalId);
 
-        //will either show a valid user object or an error
+        //will either show a valid goal object or an error
         console.log(updatedObj);
 
-        //modify the user object with new form data
+        //modify the goal object with new form data
         await userGoal.set(updatedObj);
 
-        //save the new user object to the db
-        //database would return a new student object
+        //save the new goal object to the db
         const updatedUserGoal = await userGoal.save();
         console.log(updatedUserGoal);
         res.status(201).send(updatedUserGoal);
