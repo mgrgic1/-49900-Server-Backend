@@ -42,12 +42,12 @@ router.get('/:userId', async (req,res,next) => {
 //POST to create a new user expense (based on USER_ID)
 router.post('/add', (req,res) => {
 
-    let {user_id, expense_monthly, description, real_amount, real_frequency} = req.body;
+    let {user_id, expense_monthly, expense_type, description, real_amount, real_frequency} = req.body;
 
 
     //insert into table
     UserExpenses.create({
-        user_id, expense_monthly, description, real_amount, real_frequency
+        user_id, expense_monthly, expense_type, description, real_amount, real_frequency
     }) 
     .then(userExpense => res.send(userExpense))
     .catch(err => console.log(err));
@@ -57,11 +57,12 @@ router.post('/add', (req,res) => {
 router.put("/edit/:expenseId",async(req,res,next) => {
     const {expenseId} = req.params;
 
-    let {user_id, expense_monthly, description, real_amount, real_frequency} = req.body;
+    let {user_id, expense_monthly, expense_type, description, real_amount, real_frequency} = req.body;
 
     const updatedObj = {
         user_id: user_id,
         expense_monthly: expense_monthly,
+        expense_type: expense_type,
         description:description,
         real_amount: real_amount,
         real_frequency: real_frequency
