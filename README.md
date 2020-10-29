@@ -29,7 +29,7 @@ To use:
 - If you go to CoinDB > Schemas > Tables, you'll see all the required tables and columns are there
 
 # Users Commands:
-`localhost:5000/users` - GET request to view all users in database
+`localhost:5000/users` - GET request to view a users in the database
 
 `localhost:5000/users/add` - POST request to add users to database
 
