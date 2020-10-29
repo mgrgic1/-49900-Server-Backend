@@ -24,6 +24,12 @@ const Users = db.define('users',{
         allowEmpty: false,
     },
 
+    googleId: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        allowEmpty: true,
+    },
+
     totalBalance: {
         type: Sequelize.DOUBLE,
         allowNull: false,

@@ -20,11 +20,11 @@ router.get('/:id', async (req,res,next) => {
 
 //POST user info to database
 router.post('/add', (req,res) => {
-    let { username, email, totalBalance} = req.body;
+    let { username, email, googleId, totalBalance} = req.body;
     
     //insert into table
     Users.create({
-        username,email, totalBalance
+        username,email, totalBalance, googleId
     })
     .then(users = res.redirect('/users'))
     .catch(err => console.log(err));
@@ -34,12 +34,13 @@ router.post('/add', (req,res) => {
 router.put("/edit/:id",async(req,res,next) => {
     const {id} = req.params;
 
-    let {username, email,totalBalance} = req.body;
+    let {username, email,totalBalance, googleId} = req.body;
 
     const updatedObj = {
         username: username,
         email: email,
-        totalBalance: totalBalance
+        totalBalance: totalBalance,
+        googleId: googleId
     };
 
     try 
