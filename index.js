@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use('/users', require('./routes/userRoutes'));
 app.use('/userGoals', require("./routes/userGoalsRoutes"));
 app.use('/userExpenses',require("./routes/userExpensesRoutes"))
+app.use('/userIncome',require("./routes/userIncomeRoutes"))
 
 const PORT = process.env.PORT || 5000;
 
