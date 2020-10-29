@@ -23,6 +23,12 @@ const UserExpenses = db.define('user_expenses',{
         allowEmpty: false,
     },
 
+    expense_type: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        allowEmpty: false
+    },
+
     description: {
         type: Sequelize.STRING,
         allowNull: false,
