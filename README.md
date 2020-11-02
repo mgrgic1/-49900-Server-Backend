@@ -53,7 +53,7 @@ To use:
 
 `localhost:5000/userExpenses/currentUser` - GET request to view ALL expenses for the current user
 
-`localhost:5000/userExpenses/currentUser/currentMonth` - GET request to view current user's expeneses in a given month
+`localhost:5000/userExpenses/currentUser/currentMonth` - GET request to view current user's expeneses in the current month
 
 `localhost:5000/userExpenses/currentUser/getExpenseByMY/:month/:year` - GET request to view current user's expenses by a specific month and year
 
@@ -68,7 +68,7 @@ To use:
 
 `localhost:5000/userIncome/currentUser` - GET request to view ALL income for the current user
 
-`localhost:5000/userIncome/currentUser/currentMonth` - GET request to view current user's income in a given month
+`localhost:5000/userIncome/currentUser/currentMonth` - GET request to view current user's income in the current month
 
 `localhost:5000/userIncome/currentUser/getIncomeByMY/:month/:year` - GET request to view current user's income by a specific month and year
 
