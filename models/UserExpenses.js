@@ -29,6 +29,18 @@ const UserExpenses = db.define('user_expenses',{
         allowEmpty: false
     },
 
+    expense_month: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        allowEmpty: false
+    },
+
+    expense_year: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        allowEmpty: false
+    },
+
     description: {
         type: Sequelize.STRING,
         allowNull: false,
