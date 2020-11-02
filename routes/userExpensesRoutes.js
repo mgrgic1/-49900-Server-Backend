@@ -20,34 +20,73 @@ router.get('/expenseById/:expenseId', async (req,res,next) => {
     }
 })
 
-//GET all expenses for a particular user
-router.get('/:userId', async (req,res,next) => {
-    const {userId} = req.params;
+//GET all the current user's expenses
+router.get('/currentUser', async (req,res) => {
+    const expenses = await UserExpenses.findAll(
+        { where: {userId: req.user.dataValues.id}, 
+          order: [
+            ['incomeId','DESC'],
+          ] 
+        }
+    )
+    res.send(expenses);
+});
+
+//GET all expenses for the current month
+router.get('/currentUser/currentMonth', async (req,res, next) => {
+    let d = new Date();
+    let currentMonth = d.getMonth() + 1;
+    let userId = req.user.dataValues.id;
     
     UserExpenses.findAll({
         where: {
-            user_id: [userId]
+            user_id: userId,
+            expense_month: [currentMonth]
         },
-        //highest MONTHLY expenses go first
         order: [
             ['expense_monthly','DESC'],
         ]
     })
     .then(
-        expenseRes => res.send(expenseRes)
+        monthExpenses => res.send(monthExpenses)
     )
-    .catch(next)  
-})
+    .catch(next)
+});
+
+
+//GET ALL expenses by month and year
+//ex: /currentUser/getExpenseByMY/10/2020 would return all expenses for october 2020
+router.get('/currentUser/getExpenseByMY/:month/:year', async (req,res, next) => {
+    let month = req.params.month;
+    let year = req.params.year;
+    let userId = req.user.dataValues.id;
+
+    UserExpenses.findAll({
+        where: {
+            user_id: userId,
+            expense_month: [month],
+            expense_year: [year]
+        },
+        order: [
+            ['expense_monthly','DESC'],
+        ]
+    })
+    .then(
+        MYExpenses => res.send(MYExpenses)
+    )
+    .catch(next)
+});
+
 
 //POST to create a new user expense (based on USER_ID)
 router.post('/add', (req,res) => {
 
-    let {user_id, expense_monthly, expense_type, description, real_amount, real_frequency} = req.body;
+    let {user_id, expense_monthly, expense_type, description, expense_month, expense_year, real_amount, real_frequency} = req.body;
 
 
     //insert into table
     UserExpenses.create({
-        user_id, expense_monthly, expense_type, description, real_amount, real_frequency
+        user_id, expense_monthly, expense_type, description, expense_month, expense_year, real_amount, real_frequency
     }) 
     .then(userExpense => res.send(userExpense))
     .catch(err => console.log(err));
