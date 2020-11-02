@@ -29,6 +29,18 @@ const UserIncome = db.define('user_income',{
         allowEmpty: false
     },
 
+    income_month: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        allowEmpty: false
+    },
+
+    income_year: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        allowEmpty: false
+    },
+
     description: {
         type: Sequelize.STRING,
         allowNull: false,
