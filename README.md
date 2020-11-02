@@ -49,12 +49,31 @@ To use:
 `localhost:5000/userGoals/remove/goalId` - DELETE request to remove a user's goal. Must specify a GOAL ID, not a user id.
 
 # User Expenses Commands:
-`localhost:5000/userExpenses/expenseById/expenseId` - GET request to view a specific user expense. Must specify the expenseId (not the user's id)
+`localhost:5000/userExpenses/expenseById/:expenseId` - GET request to view a specific expense. Must specify the expenseId (not the user's id)
 
-`localhost:5000/userExpenses/userId` - GET request to view ALL expenses for a particular user. Must specify the user's id
+`localhost:5000/userExpenses/currentUser` - GET request to view ALL expenses for the current user
+
+`localhost:5000/userExpenses/currentUser/currentMonth` - GET request to view current user's expeneses in a given month
+
+`localhost:5000/userExpenses/currentUser/getExpenseByMY/:month/:year` - GET request to view current user's expenses by a specific month and year
 
 `localhost:5000/userExpenses/add` - POST request to add a new expense to the database for a specific user
 
-`localhost:5000/userExpenses/edit/expenseId` - PUT request to edit a specific expense. Must specify the expense id
+`localhost:5000/userExpenses/edit/:expenseId` - PUT request to edit a specific expense. Must specify the expense id
 
-`localhost:5000/userExpenses/remove/expenseId` - DELETE request to remove a specific expense. Must specify the expense id
+`localhost:5000/userExpenses/remove/:expenseId` - DELETE request to remove a specific expense. Must specify the expense id
+
+# User Income Commands:
+`localhost:5000/userIncome/incomeById/:incomeId` - GET request to view a specific income. Must specify the incomeId (not the user's id)
+
+`localhost:5000/userIncome/currentUser` - GET request to view ALL income for the current user
+
+`localhost:5000/userIncome/currentUser/currentMonth` - GET request to view current user's income in a given month
+
+`localhost:5000/userIncome/currentUser/getExpenseByMY/:month/:year` - GET request to view current user's income by a specific month and year
+
+`localhost:5000/userIncome/add` - POST request to add a new income to the database for a specific user
+
+`localhost:5000/userIncome/edit/expenseId` - PUT request to edit a specific income. Must specify the income id
+
+`localhost:5000/userIncome/remove/:expenseId` - DELETE request to remove a specific income. Must specify the income id
