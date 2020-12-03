@@ -34,17 +34,16 @@ const UserGoals = db.define('user_goals',{
         allowNull: false,
         allowEmpty: false,
     },
-
-    progress: {
-        type: Sequelize.DOUBLE,
-        allowNull: false,
-        allowEmpty: false,
-    },
     
     priority: {
         type: Sequelize.INTEGER,
         allowNull: true,
         allowEmpty: false,
+    },
+    savingsTowardsGoal:{
+        type: Sequelize.DOUBLE,
+        allowNull:true,
+        allowEmpty: true
     }
 
 }, 

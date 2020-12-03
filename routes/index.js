@@ -5,12 +5,12 @@ var router = express.Router();
 const userRouter = require("./userRoutes");
 const userGoalsRouter = require("./userGoalsRoutes");
 const userExpensesRouter = require("./userExpensesRoutes");
-const userIncomeRouter = require("./userIncomeRoutes");
+const userIncomeRouter =  require("./userIncomeRoutes");
 
 router.use("/users", userRouter);
 router.use("/userGoals",userGoalsRouter);
 router.use("/userExpenses",userExpensesRouter);
-router.use('/userIncome',userIncomeRouter)
+router.use("/userIncome",userIncomeRouter);
 
 
 router.use((req, res, next) => {
