@@ -2,17 +2,62 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
 const Users = require('../models/Users');
+const UserExpenses = require('../models/UserExpenses');
+const UserIncome = require('../models/UserIncome');
+
 
 //GET a single user's info (by their ID)
 router.get('/:id', async (req,res,next) => {
+
     const {id} = req.params;
+
+    const allRealIncomeJSON = await UserIncome.findAll({
+        where: {
+            user_id: [id]
+        },
+        attributes: ['real_amount'],
+        raw:true,
+    })
+
+    const allRealExpensesJSON = await UserExpenses.findAll({
+        where: {
+            user_id: [id]
+        },
+        attributes: ['real_amount'],
+        raw:true,
+    })
+
+    let allExpenses = 0;
+    let allIncome = 0;
+    let netSavings = 0;
+
+    //add all user income
+    for(let i =0; i<Object.keys(allRealIncomeJSON).length;i++) {
+        allIncome += allRealIncomeJSON[i].real_amount;
+    }
+
+    //add all user expenses
+    for(let i =0; i<Object.keys(allRealExpensesJSON).length;i++) {
+        allExpenses += allRealExpensesJSON[i].real_amount;
+    }
+
+    //rounds decimals to 2 places
+    allExpenses = allExpenses.toFixed(2);
+    allIncome = allIncome.toFixed(2);
+    netSavings = (allIncome-allExpenses).toFixed(2);
+
     try {
         //if user exists
         const user = await Users.findByPk(id);
 
+        //if their net savings are above 0, return the net savings
+        //otherwise, return 0
+        user.totalBalance = netSavings > 0 ? netSavings : 0;
+        
         //send back the user as a response
         res.status(200).json(user);
     }
+    //error handling
     catch(err) {
         next(err);
     }
